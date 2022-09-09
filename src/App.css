@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  background-image:"/public/images/Backgrounds/1.jpeg";
 }
 
 .App-logo {
@@ -41,5 +40,6 @@
 html {
   width: 100%;
   height: 100%;
-  background-color: gray-300;
 }
+
+

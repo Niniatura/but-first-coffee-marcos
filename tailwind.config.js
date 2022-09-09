@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: theme => ({
+                      'coffee-pattern': "url('/public/images/Backgrounds/coffee-pattern.jpg')",
+                })
+    },
     screens: {
       'mobile': '300px',
       // => @media (min-width: 100px) { ... }
