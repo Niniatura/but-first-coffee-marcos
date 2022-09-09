@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSignIn }  from "@fortawesome/free-solid-svg-icons";
-import CartWidget from "../cartWidget/CartWidget";
+import CartWidget from "../CartWidget/CartWidget";
 import "./NavBar.css"
 
 const NavBar = () => {
