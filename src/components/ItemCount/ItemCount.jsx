@@ -2,6 +2,7 @@ import React from 'react'
 
 const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd}) => {
     const [count,setCount]=React.useState(initial)
+    // const [quantity,setQuantity]=React.useState(stock)
 
     function handleAdd () {
 
@@ -37,14 +38,14 @@ const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd}) => {
     }
   return (
     <>
-        <div className='item-count text-center m-10 bg-gray-400 w-40 flex justify-around'>
-            <button onClick={() => handleAdd(stock)}>+</button>
+     <div className='flex flex-row justify-around'>
+        <div className="flex flex-row justify-between items-center bg-gray-100 rounded-md">
+            <button className='p-2' onClick={() => handleAdd(stock)}>+</button>
             <span>{count}</span>
-            <button onClick={() => handleSubstract(stock)}>-</button>
+            <button  className='p-2'onClick={() => handleSubstract(stock)}>-</button>
         </div>
-        <div>
-            <button onClick={() => onAdd(stock)}>Agregar al carrito</button>
-        </div>
+        <button className="bg-gray-500 rounded-md p-2 hover:bg-gray-400" onClick={() => onAdd(stock)}>Agregar al carrito</button>
+    </div>   
     </>
   )
 }

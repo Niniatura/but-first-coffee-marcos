@@ -8,7 +8,7 @@ const NavBar = () => {
   return (
     <>
         <nav className="flex flex-row items-center mobile:flex-col tablet:flex-row bg-gray-500">
-            <img src="./images/Logo/26.jpeg" alt="Logo" className="logo w-20 m-2"/>
+            <img src="./images/Logo/26.jpeg" alt="Logo" className="logo w-10 m-2"/>
             <ul className="lista flex tablet:flex-row tablet:justify-around mobile:flex-col mobile:text-center">
                 <li className="hover:text-gray-300">Inicio</li>
                 <li className="hover:text-gray-300">Todos los productos</li>
