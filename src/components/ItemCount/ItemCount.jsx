@@ -38,13 +38,28 @@ const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd}) => {
     }
   return (
     <>
-     <div className='flex flex-row justify-around'>
-        <div className="flex flex-row justify-between items-center bg-gray-100 rounded-md">
-            <button className='p-2' onClick={() => handleAdd(stock)}>+</button>
-            <span>{count}</span>
-            <button  className='p-2'onClick={() => handleSubstract(stock)}>-</button>
+     <div className='flex flex-col justify-around'>
+        <div className="flex flex-row justify-between items-center mb-3">
+            <span className="font-bold text-gray-900 dark:text-white justify-around text-xs">Cantidad: </span>
+            <div className="flex flex-row justify-between items-center bg-gray-100 rounded-md p-2 w-30">
+                <button className='px-4 text-xs' onClick={() => handleAdd(stock)}>+</button>
+                <span className='text-xs'>{count}</span>
+                <button  className='px-4 text-xs'onClick={() => handleSubstract(stock)}>-</button>
+            </div>
         </div>
-        <button className="bg-gray-500 rounded-md p-2 hover:bg-gray-400" onClick={() => onAdd(stock)}>Agregar al carrito</button>
+        <div className="flex flex-row justify-between items-center mb-3">
+            <span className="font-bold text-gray-900 dark:text-white justify-around text-xs mr-2">Molienda: </span>
+            <div className="flex flex-row justify-between items-center bg-gray-100 rounded-md p-2">
+                <select className="bg-gray-100 text-sm">
+                    <option value="grano">En grano</option>
+                    <option value="grano">Volturno</option>
+                    <option value="grano">Prensa francesa</option>
+                    <option value="grano">Capsulas</option>
+                </select>
+            </div>
+        </div>
+        
+        <button className="bg-gray-500 rounded-md p-2 hover:bg-gray-400 text-sm" onClick={() => onAdd(stock)}>Agregar al carrito</button>
     </div>   
     </>
   )
