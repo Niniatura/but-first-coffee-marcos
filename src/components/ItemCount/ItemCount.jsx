@@ -2,7 +2,7 @@ import React from 'react'
 
 const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd}) => {
     const [count,setCount]=React.useState(initial)
-    // const [quantity,setQuantity]=React.useState(stock)
+    const [agregado,setAgregado]=React.useState(false)
 
     function handleAdd () {
 
@@ -27,9 +27,9 @@ const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd}) => {
         
         if(stock >=count) {
             stock = stock - count
-            console.log("Producto agregado!")
+            alert("Producto agregado!")
             setCount(initial)
-            // setQuantity(stock)
+            setAgregado(true)
         }if(stock >  0){
             setCount(initial)
         }
@@ -41,10 +41,10 @@ const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd}) => {
      <div className='flex flex-col justify-around'>
         <div className="flex flex-row justify-between items-center mb-3">
             <span className="font-bold text-gray-900 dark:text-white justify-around text-xs">Cantidad: </span>
-            <div className="flex flex-row justify-between items-center bg-gray-100 rounded-md p-2 w-30">
-                <button className='px-4 text-xs' onClick={() => handleAdd(stock)}>+</button>
-                <span className='text-xs'>{count}</span>
-                <button  className='px-4 text-xs'onClick={() => handleSubstract(stock)}>-</button>
+            <div className="flex flex-row justify-between items-center bg-gray-100 rounded-md p-1 w-30">
+                <button className='px-4 text-lg' onClick={() => handleAdd(stock)}>+</button>
+                <span className='text-sm'>{count}</span>
+                <button  className='px-4 text-lg'onClick={() => handleSubstract(stock)}>-</button>
             </div>
         </div>
         <div className="flex flex-row justify-between items-center mb-3">
@@ -59,7 +59,8 @@ const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd}) => {
             </div>
         </div>
         
-        <button className="bg-gray-500 rounded-md p-2 hover:bg-gray-400 text-sm" onClick={() => onAdd(stock)}>Agregar al carrito</button>
+        {!agregado ?<button className="bg-gray-500 rounded-md p-2 hover:bg-gray-400 text-sm" onClick={() => onAdd(stock)}>Agregar al carrito</button> :
+        <button className="bg-gray-500 rounded-md p-2 hover:bg-gray-400 text-sm">Producto en carrito</button> }
     </div>   
     </>
   )
