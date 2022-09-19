@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd}) => {
+const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd, categoria}) => {
     const [count,setCount]=React.useState(initial)
     const [agregado,setAgregado]=React.useState(false)
 
@@ -47,6 +47,7 @@ const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd}) => {
                 <button  className='px-4 text-lg'onClick={() => handleSubstract(stock)}>-</button>
             </div>
         </div>
+        { categoria === "cafe" ? 
         <div className="flex flex-row justify-between items-center mb-3">
             <span className="font-bold text-gray-900 dark:text-white justify-around text-xs mr-2">Molienda: </span>
             <div className="flex flex-row justify-between items-center bg-gray-100 rounded-md p-2">
@@ -58,7 +59,8 @@ const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd}) => {
                 </select>
             </div>
         </div>
-        
+        : <div></div>
+        }
         {!agregado ?<button className="bg-gray-500 rounded-md p-2 hover:bg-gray-400 text-sm" onClick={() => onAdd(stock)}>Agregar al carrito</button> :
         <button className="bg-gray-500 rounded-md p-2 hover:bg-gray-400 text-sm">Producto en carrito</button> }
     </div>   

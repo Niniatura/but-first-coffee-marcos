@@ -21,6 +21,7 @@ function ItemList() {
                           detail={item.detail}
                           img={item.img}
                           stock={item.stock}
+                          categoria={item.category}
                         />
                       )
               })
