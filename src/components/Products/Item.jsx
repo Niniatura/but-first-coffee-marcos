@@ -1,7 +1,7 @@
 import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 
-function Card(props) {
+function Item (props) {
     console.log(props)
     
     return (
@@ -28,4 +28,4 @@ function Card(props) {
   )
 }
 
-export default Card
+export default Item
