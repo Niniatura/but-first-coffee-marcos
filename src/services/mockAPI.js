@@ -3,7 +3,7 @@ const data = [
     id: 1,
     title: "ETHIOPIA",
     price: 1556,
-    detail: "Este café de origen colombiano proveniente de la región de Huila conlleva un proceso lavado en donde como resultado nos brinda un café con acidez prolongada. Presenta un aroma frutal y notas a nueces y melaza.",
+    detail: "Este café de origen proveniente de la región de Huila conlleva un proceso lavado en donde como resultado nos brinda un café con acidez prolongada. Presenta un aroma frutal y notas a nueces y melaza.",
     img: "/images/Cafe/1.jpeg",
     stock: 71,
     category: "cafe"
