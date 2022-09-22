@@ -1,6 +1,7 @@
 import React from 'react'
+import './itemCount.css'
 
-const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd, categoria}) => {
+const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd, categoria, itemDetailStyles}) => {
     const [count,setCount]=React.useState(initial)
     const [agregado,setAgregado]=React.useState(false)
 
@@ -38,7 +39,7 @@ const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd, categoria}
     }
   return (
     <>
-     <div className='flex flex-col justify-around'>
+     <div className='item-count'>
         <div className="flex flex-row justify-between items-center mb-3">
             <span className="font-bold text-gray-900 dark:text-white justify-around text-xs">Cantidad: </span>
             <div className="flex flex-row justify-between items-center bg-gray-100 rounded-md p-1 w-30">
@@ -61,8 +62,8 @@ const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd, categoria}
         </div>
         : <div></div>
         }
-        {!agregado ?<button className="bg-gray-500 rounded-md p-2 hover:bg-gray-400 text-sm" onClick={() => onAdd(stock)}>Agregar al carrito</button> :
-        <button className="bg-gray-500 rounded-md p-2 hover:bg-gray-400 text-sm">Producto en carrito</button> }
+        {!agregado ?<button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100" onClick={() => onAdd(stock)}>Agregar al carrito</button> :
+        <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100">Producto en carrito</button> }
     </div>   
     </>
   )
