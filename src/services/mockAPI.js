@@ -162,20 +162,21 @@ const data = [
   }
 ];
 
-export default function getItems ( ){
+export default function getItems(){
     return new Promise( (resolve, reject) => {
     setTimeout( () =>{
        resolve(data); 
-    }, 1200);
+    },1200);
 
 })
 }
 
-export function getSingleItem ( ){
-    return new Promise( (resolve, reject) => {
-    setTimeout( () =>{
-       resolve(data[0]); 
+export function getSingleItem(idItem) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let itemFind = data.find((item) => item.id === idItem);
+      if (itemFind) resolve(itemFind);
+      else reject(new Error("item no encontrado"));
     }, 1500);
-
-})
+  });
 }
