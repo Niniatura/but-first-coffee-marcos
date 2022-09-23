@@ -18,7 +18,7 @@ function Item (props) {
                     <div className="grid justify-items-end mr-2 mb-4">
                         <span className="flex font-bold text-gray-900 dark:text-white justify-around text-sm">$ {price}</span>
                     </div>
-                    <ItemCount stock={20} initial={1} categoria={categoria}/>
+                    <ItemCount stock={20} initial={1}/>
                 </div>
             </div>
         </div>

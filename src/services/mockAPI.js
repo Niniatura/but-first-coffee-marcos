@@ -170,3 +170,12 @@ export default function getItems ( ){
 
 })
 }
+
+export function getSingleItem ( ){
+    return new Promise( (resolve, reject) => {
+    setTimeout( () =>{
+       resolve(data[0]); 
+    }, 1500);
+
+})
+}

@@ -1,29 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import getSingleItem from '../../services/MockAPI';
 import ItemDetail from '../ItemDetail/ItemDetail'
 
 function ItemDetailContainer() {
-    // const itemDetailStyles={ 
-    //     display: "flex",
-    //     justifyContent: "center",
-    //     alignItems: "center",
-    //     backgroundColor: "orange",
-    //     color: "white",
-    //     height: 20,
-    //     width: 20,
-    //     borderRadius: "50%",
-    //     padding: 10,
-    //     fontWeight: "bold",
-    //   }
-  return (
+    let [data, setData] = useState([]);
+
+    useEffect(() => {
+        getSingleItem().then((data) => setData(data[3]))
+    }, []);
+    
+    return (
     <div>
-        <ItemDetail key ={1}
-                          title={'NICARAGUA'}
-                          price={200}
-                          detail= {"Este café de origen proveniente de la región de Huila conlleva un proceso lavado en donde como resultado nos brinda un café con acidez prolongada. Presenta un aroma frutal y notas a nueces y melaza."}
-                          img={'/images/Cafe/1.jpeg'}
-                          stock={20}
-                          categoria={'cafe'}
-                        //   style={itemDetailStyles}
+        <ItemDetail key ={data.id}
+                          title={data.title}
+                          price={data.price}
+                          detail={data.detail}
+                          img={data.img}
+                          stock={data.stock}
+                          categoria={data.category}
                         />
     </div>
   )

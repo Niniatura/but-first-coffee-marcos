@@ -1,7 +1,7 @@
 import React from 'react'
 import './itemCount.css'
 
-const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd, categoria, itemDetailStyles}) => {
+const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd}) => {
     const [count,setCount]=React.useState(initial)
     const [agregado,setAgregado]=React.useState(false)
 

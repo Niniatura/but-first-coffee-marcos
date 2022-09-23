@@ -2,10 +2,11 @@ import React from 'react'
 import ItemCount from '../ItemCount/ItemCount'
 import './itemDetail.css'
 
-function ItemDetail({ title, price, img, detail, itemDetailStyles }) {
-    
+function ItemDetail(props) {
+    let { title, price, img, detail, stock} = props;
     return (
         <div className='flex justify-around'>
+            <h1>{title}</h1>
             <div className="my-2 mx-auto min-h-fit w-5/6">
                 <div className='flex flex-row rounded-lg bg-gray-500 mt-10 p-10'>
                     <div id="carouselExampleControls" className="carousel slide relative flex items-center" data-bs-ride="carousel">
@@ -21,13 +22,13 @@ function ItemDetail({ title, price, img, detail, itemDetailStyles }) {
                         </button>
                         <div className="carousel-inner relative w-full overflow-hidden">
                             <div className="carousel-item active float-left w-full">
-                                <img src="/images/Backgrounds/4.jpeg" className="imagen-carousel block h-full" alt="Exotic Fruits" />
+                                <img src="/images/Backgrounds/4.jpeg" className="imagen-carousel block h-full" alt="Coffee" />
                             </div>
                             <div className="carousel-item float-left w-full">
-                                <img src="/images/Backgrounds/2.jpeg" className="imagen-carousel block h-full" alt="Camera" />
+                                <img src="/images/Backgrounds/2.jpeg" className="imagen-carousel block h-full" alt="Coffee" />
                             </div>
                             <div className="carousel-item float-left w-full">
-                                <img src="/images/Backgrounds/3.jpeg" className="imagen-carousel block w-full"alt="Wild Landscape" />
+                                <img src="/images/Backgrounds/3.jpeg" className="imagen-carousel block w-full"alt="Coffee" />
                             </div>
                         </div>
                         <button
@@ -57,7 +58,7 @@ function ItemDetail({ title, price, img, detail, itemDetailStyles }) {
                                 <img className="flex rounded-lg h-16" src='/images/Varios/medios-pago.jpeg' alt="product image" />
                             </div>
                             <div className='agregar-al-carrito'>
-                                <ItemCount />
+                                <ItemCount stock={stock} initial={1}/>
                             </div>
                         </div>
                     </div>
