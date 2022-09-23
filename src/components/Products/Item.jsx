@@ -6,7 +6,7 @@ function Item (props) {
     let { title, price, img, categoria } = props;
     return (
         <div className="my-10 tablet:w-64 mobile:w-80 h-auto">
-            <div className="pt-7 w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 flex flex-col">
+            <div className="pt-7 w-full max-w-sm bg-white rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700 flex flex-col min-h-min">
                 <a href="#">
                     <img className="foto m-2 w-48 rounded-lg object-scale-down flex mt-3" src={img} alt="product image" />
                 </a>

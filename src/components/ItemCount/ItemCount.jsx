@@ -39,7 +39,7 @@ const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd, categoria,
     }
   return (
     <>
-     <div className='item-count'>
+     <div className='item-count h-20'>
         <div className="flex flex-row justify-between items-center mb-3">
             <span className="font-bold text-gray-900 dark:text-white justify-around text-xs">Cantidad: </span>
             <div className="flex flex-row justify-between items-center bg-gray-100 rounded-md p-1 w-30">
@@ -48,20 +48,6 @@ const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd, categoria,
                 <button  className='px-4 text-lg'onClick={() => handleSubstract(stock)}>-</button>
             </div>
         </div>
-        { categoria === "cafe" ? 
-        <div className="flex flex-row justify-between items-center mb-3">
-            <span className="font-bold text-gray-900 dark:text-white justify-around text-xs mr-2">Molienda: </span>
-            <div className="flex flex-row justify-between items-center bg-gray-100 rounded-md p-2">
-                <select className="bg-gray-100 text-sm">
-                    <option value="grano">En grano</option>
-                    <option value="grano">Volturno</option>
-                    <option value="grano">Prensa francesa</option>
-                    <option value="grano">Capsulas</option>
-                </select>
-            </div>
-        </div>
-        : <div></div>
-        }
         {!agregado ?<button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100" onClick={() => onAdd(stock)}>Agregar al carrito</button> :
         <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100">Producto en carrito</button> }
     </div>   

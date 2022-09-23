@@ -6,3 +6,8 @@
 .foto{
     max-width:80%;
 }
+
+.imagen-carousel{
+   width: 100%;
+   height: auto;
+}
