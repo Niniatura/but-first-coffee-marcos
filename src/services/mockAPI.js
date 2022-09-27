@@ -142,7 +142,7 @@ const data = [
     detail: "Es un tipo de café frío que preparamos de manera artesanal. Durante 24 horas el agua fría extrae los sabores y aroma provenientes del origen de nuestros cafés. Hacemos una trazabilidad completa al grano desde la siembra y recolección del fruto hasta su preparación, para asegurarnos de aprovechar al máximo su potencial. Es una bebida natural llena de matices y sabores intensos, con la energía de la cafeína, pero sin la amargura del aceite del café.",
     img: "/images/ColdBrew/18.jpeg",
     stock: 23,
-    category: "cold brew"
+    category: "cold-brew"
   }, {
     id: 19,
     title: "NICARAGUA",
@@ -150,7 +150,7 @@ const data = [
     detail: "Una bebida concentrada de café, delicada, rica en antioxidantes, llena de energía, de baja acidez y que ayuda al metabolismo!. Esta super bebida es el resultado de un proceso de extracción en frío cuidadosamente elaborado por muchas horas.",
     img: "/images/ColdBrew/19.jpeg",
     stock: 94,
-    category: "cold brew"
+    category: "cold-brew"
   }, {
     id: 20,
     title: "KENYA",
@@ -158,12 +158,12 @@ const data = [
     detail: "Es todo lo contrario a un espresso porque, mientras éste tarda 25 segundos en ser extraído por calor, el cold brew coffee necesita entre 12 y 24 horas para obtener toda su esencia. Esto significa que el sabor, el olor y los aromas, es decir, todas sus características organolépticas, se obtienen por tiempo de infusión y no por calor.",
     img: "/images/ColdBrew/20.jpeg",
     stock: 45,
-    category: "cold brew"
+    category: "cold-brew"
   }
 ];
 
 export default function getItems(){
-    return new Promise( (resolve, reject) => {
+    return new Promise( (resolve) => {
     setTimeout( () =>{
        resolve(data); 
     },1200);
@@ -171,12 +171,33 @@ export default function getItems(){
 })
 }
 
-export function getSingleItem(idItem) {
+export function getItemsByCategory(cat) {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      let itemFind = data.find((item) => item.id === idItem);
+
+    let itemFind = data.filter((item) => {
+      return item.category === cat;
+    });
+    setTimeout( () => {
+      console.log("Encontramos:",itemFind)
       if (itemFind) resolve(itemFind);
       else reject(new Error("item no encontrado"));
-    }, 1500);
+    }, 1500)
+
   });
+
+}
+
+export function getSingleItem(idItem) {
+  return new Promise((resolve, reject) => {
+
+    let itemFind = data.find((item) => {
+      return item.id === parseInt(idItem);
+    })
+    setTimeout(() => {
+      if (itemFind) resolve(itemFind);
+      else reject(new Error("item no encontrado"));
+    }, 1500)
+
+  });
+
 }
