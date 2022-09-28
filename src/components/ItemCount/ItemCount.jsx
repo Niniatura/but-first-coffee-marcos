@@ -1,10 +1,9 @@
 import React from 'react'
 import './itemCount.css'
 
-const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd}) => {
-    const [count,setCount]=React.useState(initial)
-    const [agregado,setAgregado]=React.useState(false)
-
+const ItemCount = ({stock, onAddToCart}) => {
+    const [count,setCount]=React.useState(1)
+    
     function handleAdd () {
 
         if(stock > count) {
@@ -18,25 +17,12 @@ const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd}) => {
         if(stock >=count) {
             setCount(count-1)
             console.log(`Stock disponible: ${stock - count + 1}`)
-        }if(count <= initial){
-             setCount(initial)
+        }if(count <= 1){
+             setCount(1)
         }
 
     }
 
-    function onAdd(stock){
-        
-        if(stock >=count) {
-            stock = stock - count
-            alert("Producto agregado!")
-            setCount(initial)
-            setAgregado(true)
-        }if(stock >  0){
-            setCount(initial)
-        }
-        console.log(count)
-        console.log(stock)
-    }
   return (
     <>
      <div className='item-count h-20'>
@@ -47,9 +33,9 @@ const ItemCount = ({stock,initial, handleAdd, handleSubstract, onAdd}) => {
                 <span className='text-sm'>{count}</span>
                 <button  className='px-4 text-lg'onClick={() => handleSubstract(stock)}>-</button>
             </div>
+            <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100" onClick={ ()=>onAddToCart(count)}>Agregar al carrito</button>
         </div>
-        {!agregado ?<button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100" onClick={() => onAdd(stock)}>Agregar al carrito</button> :
-        <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100">Producto en carrito</button> }
+        
     </div>   
     </>
   )

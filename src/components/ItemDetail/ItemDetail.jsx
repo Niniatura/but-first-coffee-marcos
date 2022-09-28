@@ -1,9 +1,22 @@
-import React from 'react'
+import { useState}from 'react'
+import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 import './itemDetail.css'
 
+
 function ItemDetail(props) {
-    // let { title, price, img, detail, stock} = props;
+    
+    const [agregado,setAgregado]=useState(false)  
+
+    function handleAddToCart(count){
+
+        alert(`Agregaste ${count} productos al carrito`)
+        setAgregado(true)
+        console.log(count)
+        console.log(props.stock)
+
+    }
+    
     return (
         <div className='flex justify-around'>
             <div className="my-2 mx-auto min-h-fit w-5/6">
@@ -57,7 +70,12 @@ function ItemDetail(props) {
                                 <img className="flex rounded-lg h-16" src='/images/Varios/medios-pago.jpeg' alt="product image" />
                             </div>
                             <div className='agregar-al-carrito'>
-                                <ItemCount stock={props.stock} initial={1}/>
+                            {!agregado ?<ItemCount stock={props.stock} initial={1} onAddToCart={handleAddToCart}/>:
+                                    <Link to="/cart">
+                                        <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100">Finalizar compra</button>
+                                    </Link>}
+                                    
+                                
                             </div>
                         </div>
                     </div>
