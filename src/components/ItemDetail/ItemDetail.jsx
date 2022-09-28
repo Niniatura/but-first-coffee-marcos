@@ -6,7 +6,6 @@ function ItemDetail(props) {
     // let { title, price, img, detail, stock} = props;
     return (
         <div className='flex justify-around'>
-            <h1>{props.title}</h1>
             <div className="my-2 mx-auto min-h-fit w-5/6">
                 <div className='flex flex-row rounded-lg bg-gray-500 mt-10 p-10'>
                     <div id="carouselExampleControls" className="carousel slide relative flex items-center" data-bs-ride="carousel">
