@@ -13,12 +13,7 @@ function ItemDetailContainer() {
       return (
     <div>
         <ItemDetail key ={data.id}
-                          title={data.title}
-                          price={data.price}
-                          detail={data.detail}
-                          img={data.img}
-                          stock={data.stock}
-                          categoria={data.category}
+                          props={data}
                         />
     </div>
   )

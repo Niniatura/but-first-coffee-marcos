@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './itemCount.css'
+import { Link } from 'react-router-dom';
+import {CartCtx} from '../../context/cartContext'
 
-const ItemCount = ({stock, onAddToCart}) => {
+const ItemCount = ({props}) => {
+     
+    const { addItem } = useContext(CartCtx);
+    let {stock, onAddToCart} =props;
     const [count,setCount]=React.useState(1)
+
+    const [agregado,setAgregado]=React.useState(false)
     
     function handleAdd () {
 
@@ -22,6 +29,8 @@ const ItemCount = ({stock, onAddToCart}) => {
         }
 
     }
+    
+    
 
   return (
     <>
@@ -29,11 +38,11 @@ const ItemCount = ({stock, onAddToCart}) => {
         <div className="flex flex-row justify-between items-center mb-3">
             <span className="font-bold text-gray-900 dark:text-white justify-around text-xs">Cantidad: </span>
             <div className="flex flex-row justify-between items-center bg-gray-100 rounded-md p-1 w-30">
-                <button className='px-4 text-lg' onClick={() => handleAdd(stock)}>+</button>
-                <span className='text-sm'>{count}</span>
                 <button  className='px-4 text-lg'onClick={() => handleSubstract(stock)}>-</button>
+                <span className='text-sm'>{count}</span>
+                <button className='px-4 text-lg' onClick={() => handleAdd(stock)}>+</button>
             </div>
-            <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100" onClick={ ()=>onAddToCart(count)}>Agregar al carrito</button>
+            <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100" onClick={ ()=>onAddToCart(count)}>Agregar al carrito</button>                        
         </div>
         
     </div>   

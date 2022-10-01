@@ -1,22 +1,19 @@
-import { useState}from 'react'
+import React, { useState, useContext }from 'react'
 import { Link } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 import './itemDetail.css'
+import {CartCtx} from '../../context/cartContext'
 
 
 function ItemDetail(props) {
-    
-    const [agregado,setAgregado]=useState(false)  
+    const { addItem } = useContext(CartCtx);
+    const [agregado, setAgregado]=useState(false); 
+    const {onAddToCart} = props;
 
     function handleAddToCart(count){
-
-        alert(`Agregaste ${count} productos al carrito`)
-        setAgregado(true)
-        console.log(count)
-        console.log(props.stock)
-
+        addItem(props,count)
+       
     }
-    
     return (
         <div className='flex justify-around'>
             <div className="my-2 mx-auto min-h-fit w-5/6">
@@ -67,15 +64,13 @@ function ItemDetail(props) {
                         <div className="grid grid-cols-2 mt-10">
                             <div className='medios-pago ml-4'>
                                 <span className="flex font-bold text-gray-900 dark:text-white text-xs text-left mb-3">Medios de pago: </span>
-                                <img className="flex rounded-lg h-16" src='/images/Varios/medios-pago.jpeg' alt="product image" />
+                                <img className="flex rounded-lg h-16" src='/images/Varios/medios-pago.jpeg' alt="medios de pago" />
                             </div>
                             <div className='agregar-al-carrito'>
-                            {!agregado ?<ItemCount stock={props.stock} initial={1} onAddToCart={handleAddToCart}/>:
+                            {!agregado ?<ItemCount props={props} initial={1} onAddToCart={handleAddToCart({props})}/>:
                                     <Link to="/cart">
                                         <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100">Finalizar compra</button>
                                     </Link>}
-                                    
-                                
                             </div>
                         </div>
                     </div>
