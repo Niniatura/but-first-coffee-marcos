@@ -19,6 +19,7 @@ function ItemDetailContainer() {
                           img={data.img}
                           stock={data.stock}
                           categoria={data.category}
+                          id={data.id}
                         />
     </div>
   )

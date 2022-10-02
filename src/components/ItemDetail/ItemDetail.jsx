@@ -7,7 +7,7 @@ import {CartCtx} from '../../context/cartContext'
 
 function ItemDetail(props) {
     const { addItem } = useContext(CartCtx);
-    console.log(props)
+    // console.log(props)
     
     return (
         <div className='flex justify-around'>
@@ -63,7 +63,9 @@ function ItemDetail(props) {
                             </div>
                             <div className='agregar-al-carrito'>
                             <ItemCount stock={props.stock}
-                                        props={props}/>
+                                        props={props}
+                                        key={props.id}
+                                        id={props.id}/>
                             </div>
                         </div>
                     </div>
