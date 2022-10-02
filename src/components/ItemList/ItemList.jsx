@@ -22,13 +22,7 @@ function ItemList(props) {
               data.map( (item) =>{
                 return(
                         <Item key ={item.id}
-                          title={item.title}
-                          price={item.price}
-                          detail={item.detail}
-                          img={item.img}
-                          stock={item.stock}
-                          cat={item.category}
-                          id={item.id}
+                         props={props}
                         />
                       )
               })

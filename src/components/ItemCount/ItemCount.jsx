@@ -3,33 +3,36 @@ import './itemCount.css'
 import { Link } from 'react-router-dom';
 import {CartCtx} from '../../context/cartContext'
 
-const ItemCount = ({props}) => {
+const ItemCount = (props) => {
      
     const { addItem } = useContext(CartCtx);
-    let {stock, onAddToCart} =props;
     const [count,setCount]=React.useState(1)
-
-    const [agregado,setAgregado]=React.useState(false)
-    
+    const [agregado, setAgregado] = React.useState(false);
+    // let {stock} =props;
     function handleAdd () {
 
-        if(stock > count) {
+        if(props.stock > count) {
             setCount(count+1)
-            console.log(`Stock disponible: ${stock - count - 1}`)
+            console.log(`Stock disponible: ${props.stock - count - 1}`)
         }
     }
     
     function handleSubstract(){
         
-        if(stock >=count) {
+        if(props.stock >=count) {
             setCount(count-1)
-            console.log(`Stock disponible: ${stock - count + 1}`)
+            console.log(`Stock disponible: ${props.stock - count + 1}`)
         }if(count <= 1){
              setCount(1)
         }
 
     }
     
+    function onAddToCart(count){
+        addItem(props,count)
+        setAgregado(true)
+       
+    }
     
 
   return (
@@ -38,11 +41,14 @@ const ItemCount = ({props}) => {
         <div className="flex flex-row justify-between items-center mb-3">
             <span className="font-bold text-gray-900 dark:text-white justify-around text-xs">Cantidad: </span>
             <div className="flex flex-row justify-between items-center bg-gray-100 rounded-md p-1 w-30">
-                <button  className='px-4 text-lg'onClick={() => handleSubstract(stock)}>-</button>
+                <button  className='px-4 text-lg'onClick={() => handleSubstract(props.stock)}>-</button>
                 <span className='text-sm'>{count}</span>
-                <button className='px-4 text-lg' onClick={() => handleAdd(stock)}>+</button>
+                <button className='px-4 text-lg' onClick={() => handleAdd(props.stock)}>+</button>
             </div>
-            <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100" onClick={ ()=>onAddToCart(count)}>Agregar al carrito</button>                        
+            {!agregado ? <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100" onClick={ ()=>onAddToCart(count)}>Agregar al carrito</button>:
+                                    <Link to="/cart">
+                                        <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100">Finalizar compra</button>
+                                    </Link>}
         </div>
         
     </div>   

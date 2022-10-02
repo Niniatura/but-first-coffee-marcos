@@ -7,24 +7,19 @@ import {CartCtx} from '../../context/cartContext'
 
 function ItemDetail(props) {
     const { addItem } = useContext(CartCtx);
-    const [agregado, setAgregado]=useState(false); 
-    const {onAddToCart} = props;
-
-    function handleAddToCart(count){
-        addItem(props,count)
-       
-    }
+    console.log(props)
+    
     return (
         <div className='flex justify-around'>
             <div className="my-2 mx-auto min-h-fit w-5/6">
                 <div className='flex flex-row rounded-lg bg-gray-500 mt-10 p-10'>
-                    <div id="carouselExampleControls" className="carousel slide relative flex items-center" data-bs-ride="carousel">
+                    <div id="carouselExampleControls" className="carousel slide relative flex items-center" props-bs-ride="carousel">
                        
                         <button
                             className="carousel-control-prev z-10 absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
                             type="button"
-                            data-bs-target="#carouselExampleControls"
-                            data-bs-slide="prev"
+                            props-bs-target="#carouselExampleControls"
+                            props-bs-slide="prev"
                         >
                             <span className="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
                             <span className="visually-hidden">Previous</span>
@@ -43,8 +38,8 @@ function ItemDetail(props) {
                         <button
                             className="carousel-control-next z-10 absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
                             type="button"
-                            data-bs-target="#carouselExampleControls"
-                            data-bs-slide="next"
+                            props-bs-target="#carouselExampleControls"
+                            props-bs-slide="next"
                         >
                             <span className="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
                             <span className="visually-hidden">Next</span>
@@ -67,10 +62,8 @@ function ItemDetail(props) {
                                 <img className="flex rounded-lg h-16" src='/images/Varios/medios-pago.jpeg' alt="medios de pago" />
                             </div>
                             <div className='agregar-al-carrito'>
-                            {!agregado ?<ItemCount props={props} initial={1} onAddToCart={handleAddToCart({props})}/>:
-                                    <Link to="/cart">
-                                        <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100">Finalizar compra</button>
-                                    </Link>}
+                            <ItemCount stock={props.stock}
+                                        props={props}/>
                             </div>
                         </div>
                     </div>
