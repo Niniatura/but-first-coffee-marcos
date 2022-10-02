@@ -8,8 +8,8 @@ export default function CartContextProvider ({children}){
     const [agregado, setAgregado]=useState(false);  
     
     function addItem(props,count){
-        
-        console.log('hola desde context',props,count)
+        let stockDisponible =props.stock - count; 
+        console.log('hola desde context',props,count, stockDisponible)
         
 
         
