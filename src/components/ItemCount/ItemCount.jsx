@@ -3,9 +3,9 @@ import './itemCount.css'
 import { Link } from 'react-router-dom';
 import {CartCtx} from '../../context/cartContext'
 
-const ItemCount = (props) => {
+const ItemCount = ({props}) => {
      
-    const { addItem } = useContext(CartCtx);
+    const { addItem, removeItem } = useContext(CartCtx);
     const [count,setCount]=React.useState(1)
     const [agregado, setAgregado] = React.useState(false);
     // let {stock} =props;
@@ -14,7 +14,7 @@ const ItemCount = (props) => {
         if(props.stock > count) {
             setCount(count+1)
             
-            console.log(`Stock disponible: ${props.stock - count +1}`)
+            // console.log(`Stock disponible: ${props.stock - count +1}`)
         }
     }
     
@@ -29,11 +29,16 @@ const ItemCount = (props) => {
 
     }
     
-    function onAddToCart(count,props,key){
+    function onAddToCart(count,props){
         
-        addItem(props,count,key)
+        addItem(props)
         setAgregado(true)
        
+    }
+
+    function removeFromCart(props){
+        removeItem(props)
+        setAgregado(false)
     }
     
 
@@ -48,9 +53,12 @@ const ItemCount = (props) => {
                 <button className='px-4 text-lg' onClick={() => handleAdd()}>+</button>
             </div>
             {!agregado ? <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100" onClick={ ()=>onAddToCart(count, props)}>Agregar al carrito</button>:
+                                    <>
                                     <Link to="/cart">
                                         <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100">Finalizar compra</button>
-                                    </Link>}
+                                    </Link>
+                                    <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100" onClick={ ()=>removeFromCart({props})}>Eliminar del carrito</button> 
+                                    </>}
         </div>
         
     </div>   

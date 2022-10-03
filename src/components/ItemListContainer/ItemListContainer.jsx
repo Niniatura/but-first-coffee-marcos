@@ -6,8 +6,6 @@ import getItems, { getItemsByCategory } from '../../services/MockAPI';
 function ItemListContainer() {
   let [data, setData] =useState([]);
   const { cat }= useParams();
-
-  console.log(cat)
   
   useEffect(() => {
     if(cat === undefined){

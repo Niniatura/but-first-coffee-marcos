@@ -6,7 +6,7 @@ import {CartCtx} from '../../context/cartContext'
 
 
 function ItemDetail(props) {
-    const { addItem } = useContext(CartCtx);
+    const { cart, addItem, removeItem, agregado} = useContext(CartCtx);
     // console.log(props)
     
     return (
@@ -62,10 +62,8 @@ function ItemDetail(props) {
                                 <img className="flex rounded-lg h-16" src='/images/Varios/medios-pago.jpeg' alt="medios de pago" />
                             </div>
                             <div className='agregar-al-carrito'>
-                            <ItemCount stock={props.stock}
-                                        props={props}
-                                        key={props.id}
-                                        id={props.id}/>
+                            <ItemCount  props={props}
+                                        key={props.id}/>
                             </div>
                         </div>
                     </div>
