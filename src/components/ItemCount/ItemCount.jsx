@@ -3,10 +3,12 @@ import './itemCount.css'
 import { Link } from 'react-router-dom';
 import {CartCtx} from '../../context/cartContext'
 
-const ItemCount = ({props}) => {
+const ItemCount = ({props}, agregado) => {
      
-    const { cart, addItem, removeItem , agregado} = useContext(CartCtx);
-    const [count,setCount]=React.useState(1) 
+    const { cart, addItem, removeItem} = useContext(CartCtx);
+    const [count,setCount]=React.useState(1)
+
+
     
     // let {stock} =props;
     function handleAdd () {
@@ -29,17 +31,13 @@ const ItemCount = ({props}) => {
 
     }
     
-    function onAddToCart(count,props){
-        addItem(count,props)
+  
+    function handleAddToCart(count){
+        console.log(count)
+        addItem(props,count)
 
-        
-       
     }
-
-    function removeFromCart(count, props){
-        removeItem(count,props)
-        
-    }
+   
     
 
   return (
@@ -52,13 +50,11 @@ const ItemCount = ({props}) => {
                 <span className='text-sm'>{count}</span>
                 <button className='px-4 text-lg' onClick={() => handleAdd()}>+</button>
             </div>
-            {!agregado ? <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100" onClick={ ()=>onAddToCart({count, props})}>Agregar al carrito</button>:
-                                    <>
+            <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100" onClick={() => handleAddToCart(count, agregado)}>Agregar al carrito</button>
+            {/* {!agregado ? <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100" onClick={() => handleAddToCart(count)}>Agregar al carrito</button> :
                                     <Link to="/cart">
                                         <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100">Finalizar compra</button>
-                                    </Link>
-                                    <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100" onClick={ ()=>removeFromCart(count,props)}>Eliminar del carrito</button> 
-                                    </>}
+                                    </Link>} */}
         </div>
         
     </div>   
