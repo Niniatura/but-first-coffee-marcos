@@ -5,9 +5,8 @@ import {CartCtx} from '../../context/cartContext'
 
 const ItemCount = ({props}) => {
      
-    const { cart, addItem, removeItem } = useContext(CartCtx);
-    const [count,setCount]=React.useState(1)
-    const [agregado, setAgregado]=React.useState(false); 
+    const { cart, addItem, removeItem , agregado} = useContext(CartCtx);
+    const [count,setCount]=React.useState(1) 
     
     // let {stock} =props;
     function handleAdd () {
@@ -31,17 +30,14 @@ const ItemCount = ({props}) => {
     }
     
     function onAddToCart(count,props){
-        
         addItem(count,props)
 
-        setAgregado(true)
         
        
     }
 
     function removeFromCart(count, props){
         removeItem(count,props)
-        setAgregado(false)
         
     }
     
