@@ -12,7 +12,7 @@ const ItemCount = ({props}) => {
 
 
     
-    // let {stock} =props;
+    
     function handleAdd () {
 
         if(props.stock > count) {
@@ -35,7 +35,6 @@ const ItemCount = ({props}) => {
     
   
     function handleAddToCart(count){
-        console.log(count)
         addItem(props,count,agregado)
 
         setAgregado(true)

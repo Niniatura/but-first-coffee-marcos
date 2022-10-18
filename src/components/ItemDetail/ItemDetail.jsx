@@ -6,25 +6,25 @@ import {CartCtx} from '../../context/cartContext'
 
 
 function ItemDetail(props) {
-    const { addItem,removeItem,agregado} = useContext(CartCtx);
+    const [enCarrito, setEnCarrito]=useState(false); 
+    const { addItem} = useContext(CartCtx);
     // console.log(props)
 
-    // const [agregado, setAgregado]=React.useState(false); 
 
     
 
     
-    function onAddToCart(count,agregado){
-        addItem(count,props,agregado)
+    function onAddToCart(props,count){
+        addItem(props,count)
         
-        // setAgregado(true)
+        setEnCarrito(true)
        
     }
-    function removeFromCart(count, props){
-        removeItem(count,props)
+    // function removeFromCart(count, props){
+    //     removeItem(count,props)
         
-    }
-    // console.log(agregado)
+    // }
+    console.log(enCarrito)
     return (
         <div className='flex justify-around'>
             <div className="my-2 mx-auto min-h-fit w-5/6">
@@ -78,7 +78,7 @@ function ItemDetail(props) {
                                 <img className="flex rounded-lg h-16" src='/images/Varios/medios-pago.jpeg' alt="medios de pago" />
                             </div>
                             <div className='agregar-al-carrito'>
-                            {!agregado ? <ItemCount props={props}
+                            {!enCarrito ? <ItemCount props={props}
                                             onAddToCart={onAddToCart}/>:
                                     <Link to="/cart">
                                         <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100">Finalizar compra</button>
