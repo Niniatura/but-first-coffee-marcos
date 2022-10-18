@@ -4,20 +4,17 @@ const CartCtx = createContext();
 
 export default function CartContextProvider ({children}){
     let[cart, setCart]= useState([]); 
-    const [agregado, setAgregado]=React.useState(false); 
      
-    function addItem(props, count, agregado){
+    function addItem(props, count,agregado){
 
         let stockDisponible =props.stock - count;
         const cartItem = props;
-        console.log('hola desde context',cartItem)
+        console.log('hola desde context',cartItem,stockDisponible)
         cart.push(cartItem);
         setCart(cart)
-        setAgregado(true)
- 
         console.log(cart)
         console.log(count)
-        console.log(agregado)
+        console.log(props.agregado)
     }
 
     function removeItem ({props}){
@@ -29,7 +26,7 @@ export default function CartContextProvider ({children}){
         console.log(cart)
     }
     return(
-        <CartCtx.Provider value={{ cart, addItem, removeItem,agregado}}>
+        <CartCtx.Provider value={{ cart, addItem, removeItem}}>
             {children}
         </CartCtx.Provider>
     )
