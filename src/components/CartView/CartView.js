@@ -19,7 +19,7 @@ function CartView() {
                     <h3>{item.title}</h3>
                     <p>{item.price}</p>
                     <p>{item.count}</p>
-                    {/* <strong>{item.price * item.count}</strong> */}
+                    <strong>{item.price * item.count}</strong>
                 </div>
 
             ))}
