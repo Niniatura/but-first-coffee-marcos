@@ -7,24 +7,23 @@ import {CartCtx} from '../../context/cartContext'
 
 function ItemDetail(props) {
     const [enCarrito, setEnCarrito]=useState(false); 
-    const { addItem} = useContext(CartCtx);
+    const { addItem, inCart} = useContext(CartCtx);
     // console.log(props)
 
 
     
 
     
-    function onAddToCart(props,count){
+    function handleAddToCart(props,count){
         addItem(props,count)
-        
         setEnCarrito(true)
+        
        
     }
     // function removeFromCart(count, props){
     //     removeItem(count,props)
         
     // }
-    console.log(enCarrito)
     return (
         <div className='flex justify-around'>
             <div className="my-2 mx-auto min-h-fit w-5/6">
@@ -78,11 +77,13 @@ function ItemDetail(props) {
                                 <img className="flex rounded-lg h-16" src='/images/Varios/medios-pago.jpeg' alt="medios de pago" />
                             </div>
                             <div className='agregar-al-carrito'>
-                            {!enCarrito ? <ItemCount props={props}
-                                            onAddToCart={onAddToCart}/>:
-                                    <Link to="/cart">
-                                        <button className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100">Finalizar compra</button>
+                            {!enCarrito ? <ItemCount item={props}
+                                            onAddToCart={handleAddToCart}/>:
+                                    <Link to="/cart" className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100">
+                                        Finalizar compra
                                     </Link>}
+                            {/* <ItemCount props={props}
+                                            onAddToCart={handleAddToCart}/> */}
                             </div>
                         </div>
                     </div>
