@@ -1,0 +1,12 @@
+.cart-item{
+    width:80%;
+    margin:auto;
+    margin-top:3%;
+    text-align:center;
+}
+
+.cart-item span{
+    display:block;
+       margin:0 auto;
+
+}

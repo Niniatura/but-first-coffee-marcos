@@ -28,6 +28,13 @@ export default function CartContextProvider ({children}){
     }
     }
 
+    function totalPriceInCart(){
+        let precioTotal = 0;
+        cart.forEach((item) => (precioTotal += item.count * item.price));
+        
+        return precioTotal;
+    }
+
     function removeItem ({props}){
         let cartItems = cart;
         cartItems = cartItems.filter(function( obj ) {
@@ -42,7 +49,7 @@ export default function CartContextProvider ({children}){
     }
 
     return(
-        <CartCtx.Provider value={{ cart, addItem, removeItem, inCart}}>
+        <CartCtx.Provider value={{ cart, addItem, removeItem, inCart, totalPriceInCart}}>
             {children}
         </CartCtx.Provider>
     )
