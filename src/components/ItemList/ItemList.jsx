@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import Item from '../Products/Item'
+import React, {useState, useEffect} from 'react';
+import Item from '../Products/Item';
 import { useParams} from 'react-router-dom';
 import getItemsByCategory from '../../services/MockAPI';
 import getItems from '../../services/MockAPI';

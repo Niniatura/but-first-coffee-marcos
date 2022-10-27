@@ -18,8 +18,6 @@ export default function CartContextProvider ({children}){
       
             setCart(newCart);
           } else {
-        console.log(count)
-        // let stockDisponible =props.stock - count;
         let newCart = cart.map((item) => item);
         newCart.push({ ...item, count: count });
         setCart(newCart);
@@ -31,7 +29,6 @@ export default function CartContextProvider ({children}){
     function totalPriceInCart(){
         let precioTotal = 0;
         cart.forEach((item) => (precioTotal += item.count * item.price));
-        
         return precioTotal;
     }
 

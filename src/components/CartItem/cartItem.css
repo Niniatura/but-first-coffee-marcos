@@ -5,8 +5,11 @@
     text-align:center;
 }
 
-.cart-item span{
-    display:block;
-       margin:0 auto;
+.trash{
+    color: rgb(211,211,211);
+}
 
+
+.grilla-contenido{
+    width:100%;
 }

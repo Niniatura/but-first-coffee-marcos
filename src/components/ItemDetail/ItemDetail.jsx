@@ -1,24 +1,18 @@
-import React, { useState, useContext }from 'react'
-import { Link } from 'react-router-dom'
-import ItemCount from '../ItemCount/ItemCount'
-import './itemDetail.css'
-import {CartCtx} from '../../context/cartContext'
+import React, { useState, useContext }from 'react';
+import { Link } from 'react-router-dom';
+import ItemCount from '../ItemCount/ItemCount';
+import './itemDetail.css';
+import {CartCtx} from '../../context/cartContext';
 
 
 function ItemDetail(props) {
     const [enCarrito, setEnCarrito]=useState(false); 
-    const { addItem, inCart} = useContext(CartCtx);
-    // console.log(props)
+    const { addItem} = useContext(CartCtx);
 
-
-    
-
-    
     function handleAddToCart(props,count){
         addItem(props,count)
         setEnCarrito(true)
-        
-       
+
     }
     // function removeFromCart(count, props){
     //     removeItem(count,props)
@@ -29,7 +23,6 @@ function ItemDetail(props) {
             <div className="my-2 mx-auto min-h-fit w-5/6">
                 <div className='flex flex-row rounded-lg bg-gray-500 mt-10 p-10'>
                     <div id="carouselExampleControls" className="carousel slide relative flex items-center" props-bs-ride="carousel">
-                       
                         <button
                             className="carousel-control-prev z-10 absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
                             type="button"
@@ -77,13 +70,13 @@ function ItemDetail(props) {
                                 <img className="flex rounded-lg h-16" src='/images/Varios/medios-pago.jpeg' alt="medios de pago" />
                             </div>
                             <div className='agregar-al-carrito'>
-                            {!enCarrito ? <ItemCount item={props}
-                                            onAddToCart={handleAddToCart}/>:
-                                    <Link to="/cart" className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100">
-                                        Finalizar compra
-                                    </Link>}
-                            {/* <ItemCount props={props}
-                                            onAddToCart={handleAddToCart}/> */}
+                                {!enCarrito ? <ItemCount item={props}
+                                                onAddToCart={handleAddToCart}/>
+                                            :
+                                                <Link to="/cart" className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100">
+                                                    Finalizar compra
+                                                </Link>
+                                }
                             </div>
                         </div>
                     </div>

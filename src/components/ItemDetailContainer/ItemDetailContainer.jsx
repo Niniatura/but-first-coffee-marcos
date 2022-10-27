@@ -1,14 +1,13 @@
-import React, { useState, useEffect,useContext } from 'react'
+import React, { useState, useEffect,useContext } from 'react';
 import {getSingleItem} from '../../services/MockAPI';
 import ItemDetail from '../ItemDetail/ItemDetail';
 import { useParams} from 'react-router-dom';
-
-import {CartCtx} from '../../context/cartContext'
+import {CartCtx} from '../../context/cartContext';
 
 function ItemDetailContainer() {
     let [data, setData] = useState({});
 
-    const { cart, addItem, removeItem, agregado} = useContext(CartCtx);
+    const {agregado} = useContext(CartCtx);
     
     const { id } = useParams();
     
