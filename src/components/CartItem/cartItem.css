@@ -1,15 +1,10 @@
 .cart-item{
     width:80%;
     margin:auto;
-    margin-top:3%;
-    text-align:center;
+    margin-top:2%;
 }
 
 .trash{
     color: rgb(211,211,211);
 }
 
-
-.grilla-contenido{
-    width:100%;
-}
