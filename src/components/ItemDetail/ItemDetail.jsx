@@ -47,14 +47,17 @@ function ItemDetail(props) {
                             </div>
                         {/* </div> */}
                             <div className='agregar-al-carrito'>
-                            <span className="flex font-bold text-gray-900 dark:text-white text-xs text-left mb-3">Cantidad: </span>
+                            
                             {/* <div> */}
-                                {!enCarrito ? <ItemCount item={props}
-                                                onAddToCart={handleAddToCart}/>
+                                {!enCarrito ? <><span className="flex font-bold text-gray-900 dark:text-white text-xs text-left mb-3">Cantidad: </span>
+                                <ItemCount item={props}
+                                                onAddToCart={handleAddToCart}/></>
                                             :
+                                            <div className='medios-pago ml-10 mt-8'>
                                                 <Link to="/cart" className="bg-gray-700 rounded-md p-2 hover:bg-gray-400 text-sm text-gray-100">
                                                     Finalizar compra
                                                 </Link>
+                                            </div>
                                 }
                             {/* </div> */}
                             </div>
